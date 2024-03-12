@@ -4,6 +4,7 @@ THEN
 	RESPONSE #100
 	CutSceneId("WWElle")
 	ReallyForceSpell(Myself,CLERIC_HEAL)
+	TakePartyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */ 
         DestroyItem("wweboo")  /* Kulyok v25 */
 	Wait(1)
 	MoveToObject("Minsc")
