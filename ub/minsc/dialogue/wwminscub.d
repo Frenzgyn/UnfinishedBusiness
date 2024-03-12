@@ -633,6 +633,7 @@ IF ~~ Rewards
 SAY @180
 IF ~!G("WWEllyQuestions",0)~ THEN DO ~ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
 ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))   /* Kulyok v25 */
+TakePartyItem("wweboo")                                     /* Possible workaround for Minsc's quest -Frenzgyn */
 DestroyItem("wweboo")
 SetGlobal("WWBooGone","GLOBAL",2)~ EXTERN WWELLE NotAFool
 IF ~G("WWEllyQuestions",0)~ THEN EXTERN WWELLE CompleteFool
@@ -661,7 +662,7 @@ SAY @185
 = @187
 IF ~~ THEN DO ~ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
 				AddexperienceParty(10000)
-				SetGlobal("WWBooGone","GLOBAL",2) DestroyItem("wweboo")
+				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				EscapeArea()~ EXIT
 END
@@ -1664,7 +1665,7 @@ IF ~~ THEN WWELLE Compliment
 END
 IF ~~ THEN DO ~ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
 				AddexperienceParty(15000)
-				SetGlobal("WWBooGone","GLOBAL",2) DestroyItem("wweboo")
+				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				ActionOverride("WWElle",EscapeArea())~ EXIT
 
@@ -1770,7 +1771,7 @@ DO ~SG("WWAttackedElly",3)~
 = @640
 END
 IF ~~ THEN DO ~	ActionOverride("Minsc",ReallyForceSpellRES("wwBoo",Myself))
-				SetGlobal("WWBooGone","GLOBAL",2) DestroyItem("wweboo")
+				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				AddexperienceParty(15000) /* Kulyok */
 				EscapeArea()~ EXIT
@@ -1803,7 +1804,7 @@ IF ~~ THEN WWELLE hitMinsc
 END
 IF ~~ THEN DO ~ ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
 				AddexperienceParty(20000)
-				SetGlobal("WWBooGone","GLOBAL",2) DestroyItem("wweboo")
+				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				ActionOverride("Minsc",AddSpecialAbility("wwblet"))
 				EscapeArea()~ EXIT
