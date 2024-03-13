@@ -41,7 +41,7 @@ BEGIN
   ACTION_IF ENGINE_IS "bg2ee"
   BEGIN
     COPY ~%MOD_FOLDER%/suna/SUNAL_EE.BMP~ ~override/SUNAL.BMP~          /* Suna Seni's portraits */
-    COPY ~%MOD_FOLDER%/suna/SUNAS_EE.BMP~ ~override/SUNAS.BMP~
+    COPY ~%MOD_FOLDER%/suna/SUNAL_EE.BMP~ ~override/SUNAS.BMP~          /* Suna's small portrait on EE is very grainy and blurry, in particular if used with an UI mod, using the L version kinda solves the problem - Frenzgyn */
   END
   ELSE
   BEGIN
