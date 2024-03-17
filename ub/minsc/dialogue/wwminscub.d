@@ -326,6 +326,8 @@ IF ~~ THEN DO ~SetGlobal("WWSwooTakes","LOCALS",1)
 			MoveToPoint([216.149])
 			MoveToObject("Minsc")
 	//		GiveItemCreate("wwnboo","Minsc",0,0,0)
+			TakePartyItem("wweboo")
+			DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
 			ActionOverride("Minsc",ReallyForceSpellRES("wwfboo",Myself))
 			SetGlobal("WWBooGone","GLOBAL",3)
 			ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
