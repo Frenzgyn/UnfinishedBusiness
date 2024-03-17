@@ -631,10 +631,10 @@ END
 
 IF ~~ Rewards
 SAY @180
-IF ~!G("WWEllyQuestions",0)~ THEN DO ~ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
-ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))   /* Kulyok v25 */
-TakePartyItem("wweboo")                                     /* Possible workaround for Minsc's quest -Frenzgyn */
+IF ~!G("WWEllyQuestions",0)~ THEN DO ~TakePartyItem("wweboo")                                     /* Possible workaround for Minsc's quest -Frenzgyn */
 DestroyItem("wweboo")
+ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
+ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))   /* Kulyok v25 */
 SetGlobal("WWBooGone","GLOBAL",2)~ EXTERN WWELLE NotAFool
 IF ~G("WWEllyQuestions",0)~ THEN EXTERN WWELLE CompleteFool
 END
@@ -660,9 +660,10 @@ IF ~~ Minor
 SAY @185
 = @186
 = @187
-IF ~~ THEN DO ~ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
+IF ~~ THEN DO ~TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+				ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
 				AddexperienceParty(10000)
-				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+				SetGlobal("WWBooGone","GLOBAL",2)
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				EscapeArea()~ EXIT
 END
@@ -1663,9 +1664,10 @@ IF ~~ THEN WWELLE Compliment
 == NALIAJ IF ~IsValidForPartyDialogue("Nalia")~ THEN @588
 == EDWINJ IF ~IsValidForPartyDialogue("Edwin")~ THEN @589
 END
-IF ~~ THEN DO ~ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
+IF ~~ THEN DO ~TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+				ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
 				AddexperienceParty(15000)
-				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+				SetGlobal("WWBooGone","GLOBAL",2)
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				ActionOverride("WWElle",EscapeArea())~ EXIT
 
@@ -1770,8 +1772,9 @@ IF WEIGHT #-2 ~Global("WWAttackedElly","GLOBAL",2)~ THEN WWELLE NotWorth
 DO ~SG("WWAttackedElly",3)~
 = @640
 END
-IF ~~ THEN DO ~	ActionOverride("Minsc",ReallyForceSpellRES("wwBoo",Myself))
-				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+IF ~~ THEN DO ~TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+				ActionOverride("Minsc",ReallyForceSpellRES("wwBoo",Myself))
+				SetGlobal("WWBooGone","GLOBAL",2)
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				AddexperienceParty(15000) /* Kulyok */
 				EscapeArea()~ EXIT
@@ -1802,9 +1805,10 @@ IF ~~ THEN WWELLE hitMinsc
 = @650
 == WWELLE @651
 END
-IF ~~ THEN DO ~ ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
+IF ~~ THEN DO ~TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+				ActionOverride("Minsc",ReallyForceSpellRES("wwboo",Myself))
 				AddexperienceParty(20000)
-				SetGlobal("WWBooGone","GLOBAL",2) TakePartyItem("wweboo") DestroyItem("wweboo") /* Possible workaround for Minsc's quest -Frenzgyn */
+				SetGlobal("WWBooGone","GLOBAL",2)
 				ActionOverride("Minsc",ChangeAIScript("wwbant",OVERRIDE))
 				ActionOverride("Minsc",AddSpecialAbility("wwblet"))
 				EscapeArea()~ EXIT
