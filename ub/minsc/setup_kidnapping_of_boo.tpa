@@ -44,7 +44,12 @@ BEGIN
   COPY ~%MOD_FOLDER%/Minsc/Cre/wwrati.cre~    ~Override/wwrati.cre~  SAY NAME1 @10 SAY NAME2 @10
   COPY ~%MOD_FOLDER%/Minsc/items~ 		  ~Override~
 
-  ACTION_IF ENGINE_IS "bg2ee" BEGIN COPY ~%MOD_FOLDER%/Minsc/itemsEE~ ~Override~ END /* Kulyok v25 */
+  ACTION_IF ENGINE_IS "bg2ee" BEGIN
+  COPY ~%MOD_FOLDER%/Minsc/ItemsEE/wwnbl.bmp~   ~Override/wwnbl.bmp~ /* Using 169x266 portrait for both S and L versions, preventing blurred portrait in dialugue while using UI mods -Frenzgyn */
+  COPY ~%MOD_FOLDER%/Minsc/ItemsEE/wwnbl.bmp~   ~Override/wwnbs.bmp~ 
+  COPY ~%MOD_FOLDER%/Minsc/ItemsEE/wwfbl.bmp~   ~Override/wwfbl.bmp~ /* Added upscaled version of Minsc with fake Boo, for S and L, preventing blurred portrait -Frenzgyn */
+  COPY ~%MOD_FOLDER%/Minsc/ItemsEE/wwfbl.bmp~   ~Override/wwfbs.bmp~
+  END
 
   COPY ~%MOD_FOLDER%/Minsc/Items/wwblet.spl~  ~Override/wwblet.spl~  SAY NAME1 ~Boolets~ SAY NAME2 ~Boolets~ /*No need to translate*/
   COPY ~%MOD_FOLDER%/Minsc/Items/wwboo.spl~   ~Override/wwboo.spl~
